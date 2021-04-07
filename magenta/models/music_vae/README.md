@@ -218,4 +218,3 @@ except:
 ```
 
 * [ValueError: The passed save_path is not a valid checkpoint: modeltest.ckpt](https://github.com/tensorflow/tensorflow/issues/22443)
-
