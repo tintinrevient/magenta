@@ -203,3 +203,19 @@ Once your model has trained sufficiently, you can load the checkpoint into the
 [Colab Notebook](https://g.co/magenta/musicvae-colab) or use the
 [command-line script](#pre-trained-checkpoints) to do inference and generate
 MIDI outputs.
+
+## Issues:
+* miniconda2/envs/magenta/lib/python3.7/site-packages/tensorflow/python/training/session_manager.py 
+```python
+# Loads the checkpoint.
+try:
+  saver.restore(sess, ckpt.model_checkpoint_path)
+  saver.recover_last_checkpoints(ckpt.all_model_checkpoint_paths)
+  return sess, True
+except:
+  saver.save(sess, ckpt.model_checkpoint_path)
+  return sess, True
+```
+
+* [ValueError: The passed save_path is not a valid checkpoint: modeltest.ckpt](https://github.com/tensorflow/tensorflow/issues/22443)
+
